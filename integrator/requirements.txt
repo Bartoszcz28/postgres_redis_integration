@@ -1,0 +1,5 @@
+numpy
+pandas
+DateTime
+psycopg2
+redis
