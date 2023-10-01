@@ -23,10 +23,13 @@ services:
       - REDIS_PASSWORD=redis
       - REDIS_PORT=6379
       - REDIS_DATABASES=redis
-  docker-python-cronjob:
-    build: ./docker-python-cronjob/
-    container_name: docker-python-cronjob
+  # docker-python-cronjob:
+  #   build: ./docker-python-cronjob/
+  #   container_name: docker-python-cronjob
   integrator:
     build: ./integrator/
     container_name: integrator
+  data_generator:
+    build: ./data_generator/
+    container_name: data_generator
   
