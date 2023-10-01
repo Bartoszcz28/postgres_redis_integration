@@ -1,0 +1,32 @@
+services:
+  db-postgres:
+    image: postgres
+    container_name: db-postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "6001:5432"
+  db-redis:
+    image: redis:latest
+    container_name: db-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - /path/to/local/dаta:/root/redis
+      - /path/to/local/redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_PASSWORD=redis
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=redis
+  docker-python-cronjob:
+    build: ./docker-python-cronjob/
+    container_name: docker-python-cronjob
+  integrator:
+    build: ./integrator/
+    container_name: integrator
+  
