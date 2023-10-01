@@ -45,7 +45,7 @@ try:
             add_to_redis(user_id, course_id, generated_at)
         time.sleep(15)
 except KeyboardInterrupt:
-    print("Program został przerwany.")
+    print("The program was interrupted.")
 finally:
     # Closing cursor and connection to PostgreSQL database
     cursor.close()
